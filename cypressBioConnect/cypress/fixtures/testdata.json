@@ -1,0 +1,11 @@
+{
+"subDomain":"qatestzenq",
+"username":"ppatel@bioconnect.com",
+"password":"b155x0v5l5s",
+"invalidsubDomain":"testzenq",
+"invalidPassword":"b155x0v5l5s23",
+"invalidUsername":"ppatel123@bioconnect.com",
+"errorMessage":"Unauthorized",
+"errorMessageForEmptyFields":"username, password, or subDomain not provided"
+
+}

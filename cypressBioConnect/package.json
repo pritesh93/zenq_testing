@@ -1,0 +1,32 @@
+{
+  "name": "Cypress",
+  "version": "1.0.0",
+  "description": "This for test automation using cypress tool",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "del-cli cypress/reports/mocha/*",
+    "cypress:open": "cypress open",
+    "test.chrome": "cypress run --headed --browser chrome",
+    "test.firefox": "cypress run --headed --browser firefox",
+    "test.edge": "cypress run --headed --browser edge",
+    "merge": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate_mochawesome_report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run merge && npm run generate_mochawesome_report",
+    "test.e2e.chrome": "npm run clean:reports && npm run test.chrome && npm run posttest",
+    "test.e2e.firefox": "npm run clean:reports && npm run test.firefox && npm run posttest",
+    "test.e2e.edge": "npm run clean:reports && npm run test.edge && npm run posttest",
+    "run-dashboard": "cypress run --record --key e7b8a513-daa7-4c50-b9cd-e2a3fecd90ac"
+  },
+  "author": "Hepsiba",
+  "license": "",
+  "devDependencies": {
+    "cypress": "^4.12.1",
+    "cypress-iframe": "^1.0.1",
+    "cypress-plugin-retries": "^1.5.2",
+    "del-cli": "^3.0.1",
+    "mocha": "^5.2.0",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^5.1.0"
+  }
+}

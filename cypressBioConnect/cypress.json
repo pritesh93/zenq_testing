@@ -1,0 +1,19 @@
+{
+  "env": {
+    "url": "https://n3xt.stage.bioconnect.cloud/",
+    "RETRIES": 0
+  },
+  "pageLoadTimeout": 75000,
+  "defaultCommandTimeout": 30000,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports/mocha",
+    "reportFilename": "index",
+    "overwrite": false,
+    "html": true,
+    "json": true,
+    "charts": true
+  },
+  "video": false,
+  "projectId": "se1hzd"
+}

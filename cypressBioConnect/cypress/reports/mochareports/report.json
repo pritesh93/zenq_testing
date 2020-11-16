@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-11-16T14:11:51.440Z",
+    "end": "2020-11-16T14:12:43.193Z",
+    "duration": 28234,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "85e8c723-5bb5-474e-aec1-1ec878f83188",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\LoginFunctionalities.spec.js",
+      "file": "cypress\\integration\\TestSuite\\LoginFunctionalities.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "959d6102-2529-4a63-aea7-9844ee40bbf3",
+          "title": "TestApp suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login into BioConnect application with valid credentials",
+              "fullTitle": "TestApp suite Login into BioConnect application with valid credentials",
+              "timedOut": null,
+              "duration": 13162,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.subDomain, this.data.username, this.data.password);\nloginPage.clickOnLogin();\nuserManagementPage.verifyLogin();\nuserManagementPage.logoutFromApplication();",
+              "err": {},
+              "uuid": "b0b10912-26f7-4a8f-88c8-9d7c2037a4da",
+              "parentUUID": "959d6102-2529-4a63-aea7-9844ee40bbf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login into BioConnect application with invalid subdomain",
+              "fullTitle": "TestApp suite Login into BioConnect application with invalid subdomain",
+              "timedOut": null,
+              "duration": 6354,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.invalidsubDomain, this.data.username, this.data.password);\nloginPage.clickOnLogin();\nloginPage.verifyLoginError(this.data.errorMessage);",
+              "err": {},
+              "uuid": "3e1682ec-8bec-41dc-ae92-956a41284469",
+              "parentUUID": "959d6102-2529-4a63-aea7-9844ee40bbf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login into BioConnect application with invalid password",
+              "fullTitle": "TestApp suite Login into BioConnect application with invalid password",
+              "timedOut": null,
+              "duration": 3370,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.subDomain, this.data.username, this.data.invalidPassword);\nloginPage.clickOnLogin();\nloginPage.verifyLoginError(this.data.errorMessage);",
+              "err": {},
+              "uuid": "82b330fc-1347-485f-a110-d29a22d78e72",
+              "parentUUID": "959d6102-2529-4a63-aea7-9844ee40bbf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login into BioConnect application with invalid userName",
+              "fullTitle": "TestApp suite Login into BioConnect application with invalid userName",
+              "timedOut": null,
+              "duration": 5348,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.subDomain, this.data.invalidUsername, this.data.password);\nloginPage.clickOnLogin();\nloginPage.verifyLoginError(this.data.errorMessage);",
+              "err": {},
+              "uuid": "2f9727f2-c40d-498d-95b2-6c1e0b50ab25",
+              "parentUUID": "959d6102-2529-4a63-aea7-9844ee40bbf3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b0b10912-26f7-4a8f-88c8-9d7c2037a4da",
+            "3e1682ec-8bec-41dc-ae92-956a41284469",
+            "82b330fc-1347-485f-a110-d29a22d78e72",
+            "2f9727f2-c40d-498d-95b2-6c1e0b50ab25"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 28234,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
