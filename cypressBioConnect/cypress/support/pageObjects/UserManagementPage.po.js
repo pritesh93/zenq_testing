@@ -7,6 +7,14 @@ class UserManagementPage{
         return cy.get('#logout-menu-nav')
     }
 
+    getUserTable() {
+        return cy.get('div.user-table')
+    }
+
+    getUserList(){
+        return cy.get('div.user-table>label')
+    }
+
     verifyLogin(){
         cy.title().should('eq','User Management')
     }
@@ -17,5 +25,9 @@ class UserManagementPage{
         cy.wait(3000)
     }
 
+    verifyUserList(){
+        this.getUserTable().should('be.visible')
+        this.getUserList().should('have.length',2)
+    }
     
 }export default UserManagementPage; 
