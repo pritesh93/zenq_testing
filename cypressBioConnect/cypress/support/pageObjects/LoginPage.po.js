@@ -60,6 +60,5 @@ class LoginPage
         this.getPasswordTextBox().should('be.visible')
     }   
     
-
 }
 export default LoginPage; 

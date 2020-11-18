@@ -20,7 +20,7 @@ before(function()
 
 describe('User suite', function()
 {
-  beforeEach(() => 
+  before(() => 
   {
     cy.visit(Cypress.env('url'));
   })
@@ -33,6 +33,25 @@ describe('User suite', function()
     userManagementPage.verifyUserList()
    })
 
-  
+   it('Create new user and verify the new user is created with all information correctly',function()
+   {
+      var email=userManagementPage.addUSers(this.data.addCard-false)
+      userManagementPage.deleteUser(email)
+    })
+
+    it('Search user by name and verify the user list is filtered correctly',function()
+   {
+      userManagementPage.searchUserAndverify(this.data.searchUser.name)
+    })
+
+    it('Update user details and verify the details are correctly updated',function()
+   {
+      userManagementPage.updateDetails(this.data.updateDetails.firstname,this.data.updateDetails.lastname)
+    })
+
+    it('verify number of users per page',function()
+    {
+       userManagementPage.selectUsersPerPage(this.data.pagination.users1,this.data.pagination.users2)
+     })
     
 })
