@@ -22,6 +22,10 @@ class UserManagementPage{
         return cy.get('div.user-table>label')
     }
 
+    getUserTableHeader(){
+        return cy.get('.user-item user-item__header')
+    }
+
     getAddUser(){
         return cy.get('#add-user-button')
     }
@@ -107,13 +111,18 @@ class UserManagementPage{
         this.getSignoutLink().click()
         cy.wait(3000)
     }
-
+    
     verifyUserList(){
         this.getUserTable().should('be.visible')
-        this.getUserList().contains('span','hepsibha.chejarla').should('be.visible')
-        cy.log(randomEmail)
-        cy.log(randomFirstName)
-        cy.log(randomLastName)
+        this.getUserTableHeader().contains('span','Name').should('be.visible')
+        this.getUserTableHeader().contains('span','Username').should('be.visible')
+        this.getUserTableHeader().contains('span','Email').should('be.visible')
+        this.getUserTableHeader().contains('span','Phone Number').should('be.visible')
+        this.getUserTableHeader().contains('span','2FA Cards').should('be.visible')
+        this.getSearchInput().clear({force: true}).type(name)
+        this.getSearchButton().click()
+        cy.waitFor(1000)
+        this.verifyUserData(name)
     }
 
       addUSers(addCard){
@@ -128,6 +137,7 @@ class UserManagementPage{
           this.getAddButton().click()
           cy.waitFor(2000)
           this.getCloseFeedback().click()
+          cy.waitFor(2000)
           this.verifyUserData(randomFirstName+" "+randomLastName)
           this.verifyUserData(randomEmail)
           return randomEmail

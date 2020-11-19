@@ -1,0 +1,196 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 2,
+    "pending": 0,
+    "failures": 3,
+    "start": "2020-11-19T07:10:43.382Z",
+    "end": "2020-11-19T07:31:22.709Z",
+    "duration": 1239327,
+    "testsRegistered": 5,
+    "passPercent": 40,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1e3d0681-e9fc-4f60-a0f9-1019198b4ba6",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\UserFunctionalities.spec.js",
+      "file": "cypress\\integration\\TestSuite\\UserFunctionalities.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+          "title": "User suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "After logging in to the system, verify the user is taken directly to User Management",
+              "fullTitle": "User suite After logging in to the system, verify the user is taken directly to User Management",
+              "timedOut": null,
+              "duration": 1109953,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.subDomain, this.data.username, this.data.password);\nloginPage.clickOnLogin();\nuserManagementPage.verifyLogin();\nuserManagementPage.verifyUserList();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `div.user-table`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `div.user-table`, but never found it.\n    at UserManagementPage.verifyUserList (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:500:27)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:66:24)",
+                "diff": null
+              },
+              "uuid": "a66cd5b9-fd4a-44e4-b04b-46f6b638674f",
+              "parentUUID": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create new user and verify the new user is created with all information correctly",
+              "fullTitle": "User suite Create new user and verify the new user is created with all information correctly",
+              "timedOut": null,
+              "duration": 18280,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var email = userManagementPage.addUSers(this.data.addCard - false);\nuserManagementPage.deleteUser(email);",
+              "err": {},
+              "uuid": "b4d166f5-73cf-4834-b457-dc5a3a3dc285",
+              "parentUUID": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search user by name and verify the user list is filtered correctly",
+              "fullTitle": "User suite Search user by name and verify the user list is filtered correctly",
+              "timedOut": null,
+              "duration": 8908,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.searchUserAndverify(this.data.searchUser.name);",
+              "err": {},
+              "uuid": "aa2aa891-7267-43c2-a45f-a796b14a86e7",
+              "parentUUID": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update user details and verify the details are correctly updated",
+              "fullTitle": "User suite Update user details and verify the details are correctly updated",
+              "timedOut": null,
+              "duration": 64277,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.updateDetails(this.data.updateDetails.firstname, this.data.updateDetails.lastname);",
+              "err": {
+                "message": "CypressError: `cy.screenshot()` timed out waiting `30000ms` to complete.",
+                "estack": "CypressError: `cy.screenshot()` timed out waiting `30000ms` to complete.\n    at https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:158177:22\n    at tryCatcher (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:9956:23)\n    at https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:5078:41\n    at tryCatcher (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:9956:23)\n    at Promise._settlePromiseFromHandler (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7891:31)\n    at Promise._settlePromise (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7948:18)\n    at Promise._settlePromise0 (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7993:10)\n    at Promise._settlePromises (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:8069:18)\n    at _drainQueueStep (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:4663:12)\n    at _drainQueue (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:4656:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:4672:5)\n    at Async.drainQueues (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:4542:14)",
+                "diff": null
+              },
+              "uuid": "1bd40a05-2bda-418e-b86a-2632744a2ef6",
+              "parentUUID": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify number of users per page",
+              "fullTitle": "User suite verify number of users per page",
+              "timedOut": null,
+              "duration": 30848,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.selectUsersPerPage(this.data.pagination.users1, this.data.pagination.users2);",
+              "err": {
+                "message": "CypressError: Timed out retrying: `cy.select()` failed because this element:\n\n`<select data-v-0f2c2df6=\"\" id=\"perpage-select-pagination\">...</select>`\n\nis being covered by another element:\n\n`<div id=\"title-user-modal\" class=\"modal_topbar-title modal_topbar-title--no-actions\">Add User</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with",
+                "estack": "CypressError: Timed out retrying: `cy.select()` failed because this element:\n\n`<select data-v-0f2c2df6=\"\" id=\"perpage-select-pagination\">...</select>`\n\nis being covered by another element:\n\n`<div id=\"title-user-modal\" class=\"modal_topbar-title modal_topbar-title--no-actions\">Add User</div>`\n\nFix this problem, or use {force: true} to disable error checking.\n\nhttps://on.cypress.io/element-cannot-be-interacted-with\n    at $Cy.ensureDescendents (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:160376:26)\n    at ensureDescendents (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:149064:8)\n    at ensureDescendentsAndScroll (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:149071:14)\n    at ensureElIsNotCovered (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:149200:5)\n    at runAllChecks (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:149337:52)\n    at retryActionability (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:149352:16)\n    at tryCatcher (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:9956:23)\n    at Function.Promise.attempt.Promise.try (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7230:29)\n    at tryFn (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:163481:24)\n    at whenStable (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:163522:12)\n    at https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:163040:16\n    at tryCatcher (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:9956:23)\n    at Promise._settlePromiseFromHandler (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7891:31)\n    at Promise._settlePromise (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7948:18)\n    at Promise._settlePromise0 (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:7993:10)\n    at Promise._settlePromises (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:8073:18)\nFrom Your Spec Code:\n    at UserManagementPage.selectUsersPerPage (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:574:36)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:79:24)",
+                "diff": null
+              },
+              "uuid": "33801a5b-f57a-400c-867f-7d06ccd99bd2",
+              "parentUUID": "5bebbef6-5ac9-4fd4-8677-23f086926ffe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b4d166f5-73cf-4834-b457-dc5a3a3dc285",
+            "aa2aa891-7267-43c2-a45f-a796b14a86e7"
+          ],
+          "failures": [
+            "a66cd5b9-fd4a-44e4-b04b-46f6b638674f",
+            "1bd40a05-2bda-418e-b86a-2632744a2ef6",
+            "33801a5b-f57a-400c-867f-7d06ccd99bd2"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1232266,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

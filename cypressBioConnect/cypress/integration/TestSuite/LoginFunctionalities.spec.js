@@ -60,12 +60,12 @@ describe('Login suite', function()
       loginPage.verifyLoginError(this.data.errorMessageForEmptyFields)
      })
 
-     it('Login into BioConnect application with 10E6 length of string into login fields',function()
-   {
-     loginPage.enterUsernameAndPassword(this.data.overflowCharactersString,this.data.overflowCharactersString,this.data.overflowCharactersString)
-     loginPage.clickOnLogin()
-     loginPage.verifyLoginError(this.data.errorMessage)
-    })
+  //    it('Login into BioConnect application with 10E6 length of string into login fields',function()
+  //  {
+  //    loginPage.enterUsernameAndPassword(this.data.overflowCharactersString,this.data.overflowCharactersString,this.data.overflowCharactersString)
+  //    loginPage.clickOnLogin()
+  //    loginPage.verifyLoginError(this.data.errorMessage)
+  //   })
 
     it('Login into BioConnect application with Naughty Strings into login fields',function()
     {

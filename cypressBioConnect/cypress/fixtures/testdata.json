@@ -24,7 +24,23 @@
 
 "pagination":{
     "users1":"10",
-    "user2":"20"
+    "users2":"25"
+},
+
+"groupManagement":{
+    "groupName":"TestGroup",
+    "description":"Creating New Group",
+    "emails": "testUserA@gmail.com,testUserB@gmail.com,testUserB@gmail.com",
+    "users": ["testUserA@gmail.com","testUserB@gmail.com"],
+    "devices":["test1","test2"],
+    "userscount":"2",
+    "devicescount":"2"
+},
+
+"updateGroupDetails":{
+    "groupName":"TestGroup",
+    "users": "testUserC@gmail.com",
+    "devices":"test3"
 }
 
 
