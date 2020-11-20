@@ -3,11 +3,12 @@
 import LoginPage from '../../support/pageObjects/LoginPage.po'
 import MenuOptionsPage from '../../support/pageObjects/MenuOptionsPage.po'
 import GroupManagementPage from '../../support/pageObjects/GroupManagementPage.po'
+import UserManagementPage from '../../support/pageObjects/UserManagementPage.po'
 
 const loginPage = new LoginPage()
 const menuOptionsPage = new MenuOptionsPage()
 const groupManagementPage = new GroupManagementPage();
-
+const userManagementPage = new UserManagementPage()
 
 before(function()
 {
@@ -17,25 +18,27 @@ before(function()
     })
 })
 
-describe('User suite', function()
+describe('Group suite', function()
 {
-  before(() => 
+  beforeEach('login',function() 
   {
     cy.visit(Cypress.env('url'));
+    loginPage.enterUsernameAndPassword(this.data.subDomain,this.data.username,this.data.password)
+    loginPage.clickOnLogin()
+    menuOptionsPage.clickonGroupIcon()
   })
 
-    it('Navigate and verify Group Management page',function()
-    {
-        loginPage.enterUsernameAndPassword(this.data.subDomain,this.data.username,this.data.password)
-        loginPage.clickOnLogin()
-        menuOptionsPage.clickonGroupIcon()
-        groupManagementPage.verifyGroupPage()
+    // it('Navigate and verify Group Management page',function()
+    // {
+    //     menuOptionsPage.clickonGroupIcon()
+    //     groupManagementPage.verifyGroupPage()
 
-    })
+    // })
 
     it('Create Group and verify details',function()
     {
         groupManagementPage.addGroup(this.data.groupManagement.groupName,this.data.groupManagement.description,this.data.groupManagement.emails,this.data.groupManagement.users,this.data.groupManagement.devices)
+        groupManagementPage.verifyAddedGroup(this.data.groupManagement.groupName,this.data.groupManagement.description,this.data.groupManagement.userscount,this.data.groupManagement.devicesCount)
     })
 
     it('Update Group and verify details',function()
@@ -56,6 +59,14 @@ describe('User suite', function()
     it('Select no.of devices for page and verify',function()
     {
         groupManagementPage.paginationInEditDevices(this.data.pagination.users1,this.data.pagination.users2)
+    })
+
+    it('verify pagination in Group page',function(){
+        groupManagementPage.verifyGroupPagePagination(this.data.pagination.users1,this.data.pagination.users2)
+    })
+
+    afterEach('Logout',function(){
+        userManagementPage.logoutFromApplication()
     })
 
 })

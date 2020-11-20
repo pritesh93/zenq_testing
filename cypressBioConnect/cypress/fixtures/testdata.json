@@ -30,17 +30,28 @@
 "groupManagement":{
     "groupName":"TestGroup",
     "description":"Creating New Group",
-    "emails": "testUserA@gmail.com,testUserB@gmail.com,testUserB@gmail.com",
+    "emails": "testUserA@gmail.com,testUserB@gmail.com,testUserC@gmail.com",
     "users": ["testUserA@gmail.com","testUserB@gmail.com"],
-    "devices":["test1","test2"],
+    "devices":["test4","Test5"],
     "userscount":"2",
-    "devicescount":"2"
+    "devicescount":"2",
+    "groupReview":"Group Name\n TestGroup\n Description\n Creating New Group\n Group Authenticator\n Bypass (none)\n Alert Emails\n testUserA@gmail.com, testUserB@gmail.com\n"
 },
 
 "updateGroupDetails":{
     "groupName":"TestGroup",
     "users": "testUserC@gmail.com",
     "devices":"test3"
+},
+
+"deviceManagement":{
+    "deviceName":"Test5",
+    "newDeviceName":"Test51",
+    "toggleStatusdisable":"2FA disabled",
+    "toggleStatusenable":"2FA enabled",
+    "btrue":true,
+    "bfalse":false,
+    "naughtyInput":"ABC123DFG456"
 }
 
 

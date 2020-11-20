@@ -12,6 +12,10 @@ class MenuOptionsPage
         return cy.get('.group-management-table__header')
     }
 
+    getGroupTableRows(){
+        return cy.get('div[class="group-management-table__item"]')
+    }
+
     getAddGroupButton(){
         return cy.get('#add-group-button')
     }
@@ -41,7 +45,11 @@ class MenuOptionsPage
     }
 
     getUser(){
-        return cy.get('#item-0')
+        return cy.get(':nth-child(3) > .table-list-container > .table-list > #item-0')
+    }
+
+    getDevice(){
+        return cy.get(':nth-child(4) > .table-list-container > .table-list > #item-0')
     }
 
     getClearSearch(){
@@ -53,7 +61,7 @@ class MenuOptionsPage
     }
 
     getAddDevicesContinue(){
-        return cy.get(':nth-child(5) > .modal_footer > #continue-group-modal')
+        return cy.get(':nth-child(4) > .modal_footer > :nth-child(2)')
     }
 
     getGroupDetails(){
@@ -122,7 +130,12 @@ class MenuOptionsPage
         return cy.get('#exit-group-modal')
     }
 
+    getGroupPagination(){
+        return cy.get('#perpage-select-pagination')
+    }
+
     addGroup(groupName,description,emails,users,devices){
+        cy.waitFor(5000)
         this.getAddGroupButton().click()
         this.getAddGroupDetailsText().should('be.visible')
         this.getAddGroupName().clear().type(groupName)
@@ -131,45 +144,38 @@ class MenuOptionsPage
         this.getAddGroupContinue().click()
         this.getEditUsersText().should('be.visible')
         for (let item of users) {
-            this.getSearch().clear().type(item)
-            this.getSearchIcon().click()
-            this.getUser().click()
-            this.getClearSearch().click()
+            this.selectUsers(item)
         }
-//         users.forEach(myFunction);
-// function myFunction(item) {
-//     MenuOptionsPage.getSearch().clear().type(item)
-//     MenuOptionsPage.getSearchIcon().click()
-//     MenuOptionsPage.getUser().click()
-//     MenuOptionsPage.getClearSearch().click()
-// }
+        cy.waitFor(2000)
         this.getAddUserContinue().click()
         this.getEditDevicesText().should('be.visible')
-    //     devices.each(($el,index,$list)=>{
-    //         this.getSearch().clear().type($el)
-    //         this.getSearchIcon().click()
-    //         this.getUser().click()
-    //         this.getClearSearch().click()
-    //     })
+        for (let item of devices) {
+             this.selectDevices(item)
+        }
+        this.getAddDevicesContinue().click()
+        cy.waitFor(2000)
+        this.getGroupDetails().contains(groupName).should('be.visible')
+        this.getGroupDetails().contains(description).should('be.visible')
+        this.getGroupDetails().contains(description).should('be.visible')
+        // this.getGroupDetails().should('have.text',description)
+        // this.getGroupDetails().should('have.text',emails)
+        for (let item of users) {
+            this.getAddedUsers().contains(item).should('be.visible')
+        // this.getAddedUsers().should('have.text',item)
+        }
 
-    //     this.getGroupDetails().should('have.text',groupName)
-    //     this.getGroupDetails().should('have.text',description)
-    //     this.getGroupDetails().should('have.text',emails)
-    //     this.users.each(($el,index,$list)=>{
-    //     this.getAddedUsers().should('have.text',$el)
-    //     })
+        for (let item of devices) {
+            this.getAddedDevices().contains(item).should('be.visible')
+            // this.getAddedDevices().should('have.text',item)
+            }
+        this.getFinalAdddGroup().click()
+    }
 
-    //     this.users.each(($el,index,$list)=>{
-    //         this.getAddedDevices().should('have.text',$el)
-    //         })
-    //     this.getFinalAdddGroup().click()
-    // }
-
-    // verifyAddedGroup(groupname,description,users,devices){
-    //     this.getAddedGroupDetails().should('have.text',groupname)
-    //     this.getAddedGroupDetails().should('have.text',description)
-    //     this.getAddedGroupDetails().should('have.text',users)
-    //     this.getAddedGroupDetails().should('have.text',devices)
+    verifyAddedGroup(groupname,description,users,devices){
+        this.getAddedGroupDetails().should('have.text',groupname)
+        this.getAddedGroupDetails().should('have.text',description)
+        this.getAddedGroupDetails().should('have.text',users)
+        this.getAddedGroupDetails().should('have.text',devices)
     }
 
     verifyGroupPage(){
@@ -184,9 +190,9 @@ class MenuOptionsPage
     updateGroup(groupName,user,device){
         this.getGroupNameForEdit(groupName).click()
         this.getAddGroupContinue().click()
-        selectUserOrDevices(user)
+        this.selectUsers(user)
         this.getAddUserContinue().click()
-        selectUserOrDevices(device)
+        this.selectDevices(device)
         this.getAddDevicesContinue().click()
         this.getFinalAdddGroup().click()
         cy.waitFor(1000)
@@ -203,10 +209,11 @@ class MenuOptionsPage
     paginationInEdtUsers(value1,value2){
         this.getAddGroupButton().click()
         this.getAddGroupName().clear().type('Test')
+        this.getAddDescription().clear().type('Test Description')
         this.getAddGroupContinue().click()
         this.getEditUserPagination().select(value1)
         this.getEditUserTable().should('have.length',value1)
-        this.getEditUserPagination().select(value1)
+        this.getEditUserPagination().select(value2)
         this.getEditUserTable().should('have.length',value2)
         this.getCloseAddGroup().click()
     }
@@ -214,21 +221,49 @@ class MenuOptionsPage
     paginationInEditDevices(value1,value2){
         this.getAddGroupButton().click()
         this.getAddGroupName().clear().type('Test')
+        this.getAddDescription().clear().type('Test Description')
         this.getAddGroupContinue().click()
         this.getEditUserPagination().select(value1)
         this.getEditUserTable().should('have.length',value1)
-        this.getEditUserPagination().select(value1)
+        this.getEditUserPagination().select(value2)
         this.getEditUserTable().should('have.length',value2)
         this.getCloseAddGroup().click()
     }
 
-
-    selectUserOrDevices(value){
+    selectUsers(value){
         this.getSearch().clear().type(value)
         this.getSearchIcon().click()
-        cy.waitFor(1000)
-        this.getUser().click()
-        this.getClearSearch().click() 
+        cy.waitFor(80000)
+        this.getUser().contains(value).click()
+        cy.waitFor(2000)
+        // this.getClearSearch().click()
     }
+
+    selectDevices(value){
+        this.getSearch().clear().type(value)
+        this.getSearchIcon().click()
+        cy.waitFor(5000)
+        this.getDevice().contains(value).click() 
+        cy.waitFor(2000)
+        // this.getClearSearch().click()
+    }
+
+    closeAddGroupWindow(){
+        this.getCloseAddGroup().then($button =>{
+            if($button.is(':visible')){
+                this.getCloseAddGroup().click()
+            }
+        })
+    }
+
+    verifyGroupPagePagination(){
+        this.getGroupPagination().select(value1)
+        this.getGroupTableRows().should('have.length',value1)
+        this.getGroupPagination().select(value2)
+        this.getGroupTableRows().should('have.length',value2)
+    }
+
+
+    
 
 }export default MenuOptionsPage

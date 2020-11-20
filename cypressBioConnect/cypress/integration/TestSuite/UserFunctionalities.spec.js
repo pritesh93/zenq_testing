@@ -7,8 +7,6 @@ import StatusPage from '../../support/pageObjects/StatusPage.po'
 
 const loginPage = new LoginPage()
 const userManagementPage = new UserManagementPage()
-const forgotPasswordPage = new ForgotPasswordPage()
-const statusPage = new StatusPage()
 
 before(function()
 {
