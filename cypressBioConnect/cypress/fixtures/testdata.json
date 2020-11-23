@@ -45,14 +45,20 @@
 },
 
 "deviceManagement":{
-    "deviceName":"Test5",
-    "newDeviceName":"Test51",
+    "macAddress":"12:34:56:78:91:11",
+    "door0":"Test Device1",
+    "door1":"Test Device2",
+    "doors":["Test Device1","Test Device2"],
+    "deviceName":"Test Device1",
+    "newDeviceName":"Test Device3",
     "toggleStatusdisable":"2FA disabled",
     "toggleStatusenable":"2FA enabled",
     "btrue":true,
     "bfalse":false,
     "naughtyInput":"ABC123DFG456"
 }
+
+
 
 
 }

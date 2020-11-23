@@ -7,7 +7,7 @@ class DeviceManagementPage
     getDeviceManagementBar(){
         return cy.get('.device-management-actionbar')
     }
-//Test5
+
     getToggle(device){
         return cy.xpath('(//*[contains(text(),"'+device+'")])/parent::div/div[@class="toggle"]/input')
     }
@@ -33,7 +33,7 @@ class DeviceManagementPage
     }
 
     getCrossMark(){
-        return cy.get('.device-actions__action:nth-child(2)')
+        return cy.get('.device-actions > :nth-child(2) > .feather')
     }
 
     getFirstDevice(){
@@ -60,7 +60,68 @@ class DeviceManagementPage
         return cy.get('button[class="btn btn__text"]')
     }
 
+    getAddDevice(){
+        return cy.get('#add-device-button')
+    }
+
+    getMACAddress(){
+        return cy.get('#address-input-device-modal')
+    }
+
+    getContinueButton(){
+        return cy.get('#continue-device-modal')
+    }
+
+    getServeelet(){
+        return cy.get('#cabinet-device-modal')
+    }
+
+    getAddserverLinkContinue(){
+        return cy.get('#continue-device-modal:nth-child(3)')
+    }
+
+    getDoor0(){
+        return cy.get('#0-door-name-device-modal')
+    }
+
+    getDoor1(){
+        return cy.get('#1-door-name-device-modal')
+    }
+
+    getSubmitAddDevice(){
+        return cy.get('#submit-device-modal')
+    }
+
+    getFeedbackClose(){
+        return cy.get('#exit-feedback-modal')
+    }
+
+    getAddedDevices(){
+        return cy.get('.device-item')
+    }
+
+     getAlertMessage(){
+         return cy.get('.alert-bar__message')
+     }
+
+     getCloseAddDevices(){
+         return cy.get('#exit-device-modal > .feather');
+     }
+
+     getMenuOfDevice(){
+         return cy.get('#device-menu > span > .feather')
+     }
+
+     getDeleteDevice(){
+         return cy.get('#delete-device-menu')
+     }
+
+     getConfirmationPopUp(){
+         return cy.get('#accept-confirmation-modal')
+     }
+
     verifyDeviceManagementPage(){
+        cy.wait(3000)
         this.getDeviceManagement().should('have.text','Device Management')
         this.getDeviceManagementBar().should('be.visible')
     }
@@ -85,15 +146,16 @@ class DeviceManagementPage
         this.getClearSearch().click()
     }
 
-    renameDevice(devicename,newDevicename,bRename,rename,errorMsg){
+    renameDevice(devicename,newDevicename,bRename){
         this.getDeviceName(devicename).click()
         this.getDeviceNameTextBox().clear().type(newDevicename)
-        if(bRename=true){
+        if(bRename==true){
+            cy.log(bRename)
             this.getTickMark().click()
             this.getFirstDevice().contains(newDevicename).should('be.visible')    
         }else{
             this.getCrossMark().click()
-            this.getFirstDevice().contains(newDevicename).should('be.visible')
+            this.getFirstDevice().contains(newDevicename).should('not.be.visible')
         }
     }
 
@@ -102,8 +164,38 @@ class DeviceManagementPage
         this.getTooltipClose().click()
     }
 
-    
+    addDevice(macAddress,door0,door1){
+        this.getAddDevice().click()
+        this.getMACAddress().clear().type(macAddress)
+        this.getContinueButton().click()
+        this.getServeelet().click()
+        this.getAddserverLinkContinue().click()
+        this.getDoor0().clear().type(door0)
+        this.getDoor1().clear().type(door1)
+        this.getSubmitAddDevice().click()
+        
+    }
 
+    verifyAddedDevices(devices){
+        this.getFeedbackClose().click()
+        for(let item of devices){
+            this.searchDevices(item)
+            this.getAddedDevices().contains(item).should('be.visible')
+            this.clickOnClearSearch()
+        }
+    }
+
+    verifyErrorMessage(){
+        this.getAlertMessage().contains('Device already exists.').should('be.visible')
+        this.getCloseAddDevices().click()
+    }
+
+    deleteDevice(deviceName){
+        this.searchDevices(deviceName)
+        this.getMenuOfDevice().click()
+        this.getDeleteDevice().click()
+        this.getConfirmationPopUp().click()
+    }
 
     
 }export default DeviceManagementPage

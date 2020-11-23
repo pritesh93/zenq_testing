@@ -28,7 +28,7 @@ describe('User suite', function()
     loginPage.enterUsernameAndPassword(this.data.subDomain,this.data.username,this.data.password)
     loginPage.clickOnLogin()
     userManagementPage.verifyLogin()
-    userManagementPage.verifyUserList()
+    userManagementPage.verifyUserList(this.data.searchUser.name)
    })
 
    it('Create new user and verify the new user is created with all information correctly',function()
