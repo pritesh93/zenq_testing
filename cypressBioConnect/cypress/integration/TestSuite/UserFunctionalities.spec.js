@@ -37,6 +37,17 @@ describe('User suite', function()
       userManagementPage.deleteUser(email)
     })
 
+    it('Create new user, add card to user and verify the new user is created with card',function()
+   {
+      userManagementPage.addUSers(this.data.addCard-true)
+    })
+
+    it('Select multiple users,Enable crads and verify message',function()
+   {
+      userManagementPage.selectMultipleUsers(this.data.UserManagement.FirstName,this.data.UserManagement.LastName,this.data.UserManagement.Emails)
+      userManagementPage.ClickEnableOnCardsDropDownAndverify()
+    })
+
     it('Search user by name and verify the user list is filtered correctly',function()
    {
       userManagementPage.searchUserAndverify(this.data.searchUser.name)

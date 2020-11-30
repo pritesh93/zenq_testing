@@ -56,7 +56,17 @@
     "btrue":true,
     "bfalse":false,
     "naughtyInput":"ABC123DFG456"
+},
+"UserManagement":{
+    "FirstName":"ZenQTest",
+    "LastName":"User",
+    "Emails":["ZenQTestUser1@gmail.com","ZenQTestUser2@gmail.com"]
+},
+"AuthenticationManagement":{
+    "mailTo":"mailto:schatterjee@bioconnect.com"
 }
+
+
 
 
 

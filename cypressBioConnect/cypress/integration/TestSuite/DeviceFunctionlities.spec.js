@@ -62,17 +62,17 @@ describe('Device suite', function()
     deviceManagementPage.renameDevice(this.data.deviceManagement.deviceName,this.data.deviceManagement.newDeviceName,this.data.deviceManagement.btrue)
    })
 
-  //  it('Cancel rename device and verify',function()
-  // {
-  //   deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName)
-  //   deviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName,this.data.deviceManagement.deviceName,this.data.deviceManagement.bfalse)
-  //  })
+   it('Cancel rename device and verify',function()
+  {
+    deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName)
+    deviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName,this.data.deviceManagement.deviceName,this.data.deviceManagement.bfalse)
+   })
 
-  //  it('Rename device with naughty string and verify',function()
-  // {
-  //   deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName)
-  //   deviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName,this.data.deviceManagement.naughtyInput,this.data.deviceManagement.btrue)
-  //  })
+   it('Rename device with naughty string and verify',function()
+  {
+    deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName)
+    deviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName,this.data.deviceManagement.naughtyInput,this.data.deviceManagement.btrue)
+   })
     
 })
 after(function()

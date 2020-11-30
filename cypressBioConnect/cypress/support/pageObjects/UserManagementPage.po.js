@@ -52,6 +52,7 @@ class UserManagementPage{
 
     getAddCardCheckbox(){
         return cy.contains('Add Card')
+        // label[for="add-card"]
     }
 
     getAddButton(){
@@ -102,6 +103,34 @@ class UserManagementPage{
         return cy.get('#perpage-select-pagination')
     }
 
+    getUserCheckBox2(email){
+        return cy.get('label[data-testid="'+email+'"]>input[type="checkbox"]')
+    }
+
+    getAddCardButton(){
+        return cy.get('(//button[contains(text(),"ADD CARD")])[1]')
+    }
+
+    getUSerRow(email){
+        return cy.get('[data-testid="'+email+'"]')
+    }
+
+    getAddNewCardWindowTitle(){
+        return cy.get('.modal_topbar-title')
+    }
+
+    getManageDropdown(){
+        return cy.get('#manage-user-dropdown-button')
+    }
+
+    getEnable2FA(){
+        return cy.get('#enable-stepup-dropdown')
+    }
+
+    getSucessPopUp(){
+        return cy.get('[class="alert-bar__message"]')
+    }
+
     verifyLogin(){
         cy.title().should('eq','User Management')
     }
@@ -133,15 +162,16 @@ class UserManagementPage{
           this.getLastName().clear().type(randomLastName)
           this.getEmail().clear().type(randomEmail)
           this.getUserName().clear().type(randomEmail)
-        if(addCard){
-            enterAddCardDetails()
+        if(addCard==true){
+            this.enterAddCardDetailsAndVerify(randomEmail)
+        }else{
+            this.getAddButton().click()
+            cy.wait(2000)
+            this.getCloseFeedback().click()
+            cy.wait(2000)
+            this.verifyUserData(randomFirstName+" "+randomLastName)
+            this.verifyUserData(randomEmail)
         }
-          this.getAddButton().click()
-          cy.wait(2000)
-          this.getCloseFeedback().click()
-          cy.wait(2000)
-          this.verifyUserData(randomFirstName+" "+randomLastName)
-          this.verifyUserData(randomEmail)
           return randomEmail
       }
 
@@ -149,8 +179,13 @@ class UserManagementPage{
         this.getUserTableData().contains('span',value).should('be.visible')
       }
 
-      enterAddCardDetails(){
-        
+      enterAddCardDetailsAndVerify(email){
+        this.getAddCardCheckbox().click()
+        this.getAddButton().click()
+        this.getAddNewCardWindowTitle().contains('Add new card for').should('be.visible')
+        this.getAddCardButton().click()
+        cy.wait(2000)
+        this.getUSerRow(email).contains('span','1 / 1').should('be.visible')
       }
     
       deleteUser(email){
@@ -189,6 +224,31 @@ class UserManagementPage{
           cy.waitFor(1000)
           this.getUserList().should('have.length',value2)
       }
+
+      selectMultipleUsers(firstname,lastname,emails){
+          for(let item of emails){
+            this.getAddUser().click();
+            this.getFirstName().clear().type(firstname)
+            this.getLastName().clear().type(lastname)
+            this.getEmail().clear().type(item)
+            this.getUserName().clear().type(item)
+            this.getAddCardCheckbox().click()
+            this.getAddButton().click()
+            this.getAddNewCardWindowTitle().contains('Add new card for').should('be.visible')
+            this.getAddCardButton().click()
+            cy.wait(2000)
+            this.getCloseFeedback().click()
+            this.getUserCheckBox2(emails).check()
+          }
+      }
+
+      ClickEnableOnCardsDropDownAndverify(){
+          this.getManageDropdown().click()
+          this.getEnable2FA().click({force:click})
+          this.getSucessPopUp().contains('Enabled two-factor for').should('be.visible')
+      }
+
+
 
 
 }export default UserManagementPage; 
