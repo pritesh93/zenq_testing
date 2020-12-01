@@ -1,0 +1,230 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 5,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-12-01T15:12:04.447Z",
+    "end": "2020-12-01T15:14:02.359Z",
+    "duration": 117912,
+    "testsRegistered": 7,
+    "passPercent": 71.42857142857143,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0c56622d-1a12-400f-a4b1-a4300f977e44",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\UserFunctionalities.spec.js",
+      "file": "cypress\\integration\\TestSuite\\UserFunctionalities.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+          "title": "User suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "After logging in to the system, verify the user is taken directly to User Management",
+              "fullTitle": "User suite After logging in to the system, verify the user is taken directly to User Management",
+              "timedOut": null,
+              "duration": 10091,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.enterUsernameAndPassword(this.data.subDomain, this.data.username, this.data.password);\nloginPage.clickOnLogin();\nuserManagementPage.verifyLogin();\nuserManagementPage.verifyUserList(this.data.searchUser.name);",
+              "err": {},
+              "uuid": "d25cf997-710b-4cbf-a217-ab840c4bf2bc",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create new user and verify the new user is created with all information correctly",
+              "fullTitle": "User suite Create new user and verify the new user is created with all information correctly",
+              "timedOut": null,
+              "duration": 10863,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var email = userManagementPage.addUSers();\nuserManagementPage.deleteUser(email);",
+              "err": {},
+              "uuid": "2a7cfdb8-1674-44ad-bee7-5872ac92b3f9",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create new user, add card to user and verify the new user is created with card",
+              "fullTitle": "User suite Create new user, add card to user and verify the new user is created with card",
+              "timedOut": null,
+              "duration": 35203,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.addUSerswithCard();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'Add new card for' within the element: <div#title-user-modal.modal_topbar-title.modal_topbar-title--no-actions> but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'Add new card for' within the element: <div#title-user-modal.modal_topbar-title.modal_topbar-title--no-actions> but never did.\n    at UserManagementPage.enterAddCardDetailsAndVerify (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:646:68)\n    at UserManagementPage.addUSerswithCard (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:633:12)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:71:24)",
+                "diff": null
+              },
+              "uuid": "a8601667-ac76-4805-abb7-7362f10b544b",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select multiple users,Enable crads and verify message",
+              "fullTitle": "User suite Select multiple users,Enable crads and verify message",
+              "timedOut": null,
+              "duration": 33223,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.selectMultipleUsers(this.data.UserManagement.FirstName, this.data.UserManagement.LastName, this.data.UserManagement.Emails);\nuserManagementPage.ClickEnableOnCardsDropDownAndverify();",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find content: 'Add new card for' within the element: <div#title-user-modal.modal_topbar-title.modal_topbar-title--no-actions> but never did.",
+                "estack": "AssertionError: Timed out retrying: Expected to find content: 'Add new card for' within the element: <div#title-user-modal.modal_topbar-title.modal_topbar-title--no-actions> but never did.\n    at UserManagementPage.selectMultipleUsers (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:716:72)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\UserFunctionalities.spec.js:74:24)",
+                "diff": null
+              },
+              "uuid": "72b049d8-efaf-4af8-96f6-ea691d4e2261",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search user by name and verify the user list is filtered correctly",
+              "fullTitle": "User suite Search user by name and verify the user list is filtered correctly",
+              "timedOut": null,
+              "duration": 1533,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.searchUserAndverify(this.data.searchUser.name);",
+              "err": {},
+              "uuid": "2a7ee088-fb22-4fb9-b2a5-8b8122abdb7e",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update user details and verify the details are correctly updated",
+              "fullTitle": "User suite Update user details and verify the details are correctly updated",
+              "timedOut": null,
+              "duration": 12807,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.updateDetails(this.data.updateDetails.firstname, this.data.updateDetails.lastname);",
+              "err": {},
+              "uuid": "8c6acee8-0ead-4527-8d43-dadb190d5262",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify number of users per page",
+              "fullTitle": "User suite verify number of users per page",
+              "timedOut": null,
+              "duration": 2547,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "userManagementPage.selectUsersPerPage(this.data.pagination.users1, this.data.pagination.users2);",
+              "err": {},
+              "uuid": "a08af1d4-9d31-4d7c-bb2b-dcafd9a43f9a",
+              "parentUUID": "cdbc6e9d-94fb-406e-88de-f4b3bbb43e10",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d25cf997-710b-4cbf-a217-ab840c4bf2bc",
+            "2a7cfdb8-1674-44ad-bee7-5872ac92b3f9",
+            "2a7ee088-fb22-4fb9-b2a5-8b8122abdb7e",
+            "8c6acee8-0ead-4527-8d43-dadb190d5262",
+            "a08af1d4-9d31-4d7c-bb2b-dcafd9a43f9a"
+          ],
+          "failures": [
+            "a8601667-ac76-4805-abb7-7362f10b544b",
+            "72b049d8-efaf-4af8-96f6-ea691d4e2261"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 106267,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

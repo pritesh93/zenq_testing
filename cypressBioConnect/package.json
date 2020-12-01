@@ -17,7 +17,7 @@
     "test.e2e.edge": "npm run clean:reports && npm run test.edge && npm run posttest",
     "run-dashboard": "cypress run --record --key e7b8a513-daa7-4c50-b9cd-e2a3fecd90ac"
   },
-  "author": "Hepsiba",
+  "author": "ZenQ",
   "license": "",
   "devDependencies": {
     "cypress": "^4.12.1",

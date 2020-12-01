@@ -1,0 +1,226 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-01T15:08:05.190Z",
+    "end": "2020-12-01T15:09:33.391Z",
+    "duration": 88201,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "70468201-555d-4039-ba34-85fc866f8336",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\DeviceFunctionlities.spec.js",
+      "file": "cypress\\integration\\TestSuite\\DeviceFunctionlities.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+          "title": "Device suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to device page and verify devices",
+              "fullTitle": "Device suite Navigate to device page and verify devices",
+              "timedOut": null,
+              "duration": 7954,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.verifyDeviceManagementPage();",
+              "err": {},
+              "uuid": "f5c101a3-1ba5-4f8e-8623-e1219d1f8566",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add new device and verify",
+              "fullTitle": "Device suite Add new device and verify",
+              "timedOut": null,
+              "duration": 11803,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.addDevice(this.data.deviceManagement.macAddress, this.data.deviceManagement.door0, this.data.deviceManagement.door1);\ndeviceManagementPage.verifyAddedDevices(this.data.deviceManagement.doors);",
+              "err": {},
+              "uuid": "95f2c31d-262e-4222-8fbc-8214db5e6aac",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Add already added device and verify",
+              "fullTitle": "Device suite Add already added device and verify",
+              "timedOut": null,
+              "duration": 2053,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.addDevice(this.data.deviceManagement.macAddress, this.data.deviceManagement.door0, this.data.deviceManagement.door1);\ndeviceManagementPage.verifyErrorMessage();",
+              "err": {},
+              "uuid": "de2f183c-69f0-4c21-83e7-a78cd4fcfb2a",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Press toggle button and verify toggle status",
+              "fullTitle": "Device suite Press toggle button and verify toggle status",
+              "timedOut": null,
+              "duration": 10457,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.searchDevices(this.data.deviceManagement.deviceName);\ndeviceManagementPage.clickonToggle(this.data.deviceManagement.deviceName);\ndeviceManagementPage.verifyToggleStatus(this.data.deviceManagement.deviceName, this.data.deviceManagement.toggleStatusenable);\ndeviceManagementPage.clickonToggle(this.data.deviceManagement.deviceName);\ndeviceManagementPage.verifyToggleStatus(this.data.deviceManagement.deviceName, this.data.deviceManagement.toggleStatusdisable);\ndeviceManagementPage.clickOnClearSearch();",
+              "err": {},
+              "uuid": "f868f553-be96-4f8c-b0ca-917b4998c64f",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Rename device and verify",
+              "fullTitle": "Device suite Rename device and verify",
+              "timedOut": null,
+              "duration": 4158,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.searchDevices(this.data.deviceManagement.deviceName);\ndeviceManagementPage.renameDevice(this.data.deviceManagement.deviceName, this.data.deviceManagement.newDeviceName, this.data.deviceManagement.btrue);",
+              "err": {},
+              "uuid": "6c3ad057-a199-4b93-95c3-003203036df9",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cancel rename device and verify",
+              "fullTitle": "Device suite Cancel rename device and verify",
+              "timedOut": null,
+              "duration": 28565,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName);\ndeviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName, this.data.deviceManagement.deviceName, this.data.deviceManagement.bfalse);",
+              "err": {},
+              "uuid": "2ec16e1f-6c3a-486f-887c-8d09b45ec800",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Rename device with naughty string and verify",
+              "fullTitle": "Device suite Rename device with naughty string and verify",
+              "timedOut": null,
+              "duration": 12108,
+              "state": "failed",
+              "speed": "slow",
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "deviceManagementPage.searchDevices(this.data.deviceManagement.newDeviceName);\ndeviceManagementPage.renameDevice(this.data.deviceManagement.newDeviceName, this.data.deviceManagement.naughtyInput, this.data.deviceManagement.btrue);",
+              "err": {
+                "message": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click\n\nBecause this error occurred during a `after all` hook we are skipping all of the remaining tests.",
+                "estack": "CypressError: `cy.click()` can only be called on a single element. Your subject contained 2 elements. Pass `{ multiple: true }` if you want to serially click each element.\n\nhttps://on.cypress.io/click\n\nBecause this error occurred during a `after all` hook we are skipping all of the remaining tests.\n    at mouseAction (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:151230:17)\n    at Context.click (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:151374:14)\n    at Context.<anonymous> (https://n3xt.stage.bioconnect.cloud/__cypress/runner/cypress_runner.js:168170:21)\nFrom Your Spec Code:\n    at DeviceManagementPage.deleteDevice (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\DeviceFunctionlities.spec.js:410:30)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\DeviceFunctionlities.spec.js:99:24)",
+                "diff": null
+              },
+              "uuid": "a63a0fd1-fe0b-46f9-8df9-9798601956c8",
+              "parentUUID": "6a304b5b-b891-4a49-92af-49c89eecb6b9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f5c101a3-1ba5-4f8e-8623-e1219d1f8566",
+            "95f2c31d-262e-4222-8fbc-8214db5e6aac",
+            "de2f183c-69f0-4c21-83e7-a78cd4fcfb2a",
+            "f868f553-be96-4f8c-b0ca-917b4998c64f",
+            "6c3ad057-a199-4b93-95c3-003203036df9",
+            "2ec16e1f-6c3a-486f-887c-8d09b45ec800"
+          ],
+          "failures": [
+            "a63a0fd1-fe0b-46f9-8df9-9798601956c8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 77098,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

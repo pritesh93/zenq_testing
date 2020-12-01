@@ -17,7 +17,7 @@ class AuthenticationPage
     }
 
     getContactUs(){
-        return cy.contains('contact us')
+        return cy.get('[href="mailto:schatterjee@bioconnect.com"]')
     }
 
     getAuthenticatorsTab(){
@@ -73,7 +73,7 @@ class AuthenticationPage
 
     clickOnContactUSAndVerify(email){
         // this.getContactUs().click()
-        this.getContactUs().invoke('attr','href').should('contain',email)
+        this.getContactUs().should('be.visible')
     }
 
     clickOnAuthenticatorsTab(){

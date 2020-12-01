@@ -20,7 +20,7 @@ before(function()
 
 describe('Group suite', function()
 {
-  beforeEach('login',function() 
+  before('login',function() 
   {
     cy.visit(Cypress.env('url'));
     loginPage.enterUsernameAndPassword(this.data.subDomain,this.data.username,this.data.password)
@@ -28,22 +28,22 @@ describe('Group suite', function()
     menuOptionsPage.clickonGroupIcon()
   })
 
-    // it('Navigate and verify Group Management page',function()
-    // {
-    //     menuOptionsPage.clickonGroupIcon()
-    //     groupManagementPage.verifyGroupPage()
+    it('Navigate and verify Group Management page',function()
+    {
+        menuOptionsPage.clickonGroupIcon()
+        groupManagementPage.verifyGroupPage()
 
-    // })
+    })
 
     it('Create Group and verify details',function()
     {
         groupManagementPage.addGroup(this.data.groupManagement.groupName,this.data.groupManagement.description,this.data.groupManagement.emails,this.data.groupManagement.users,this.data.groupManagement.devices)
-        groupManagementPage.verifyAddedGroup(this.data.groupManagement.groupName,this.data.groupManagement.description,this.data.groupManagement.userscount,this.data.groupManagement.devicesCount)
+        groupManagementPage.verifyAddedGroup(this.data.groupManagement.groupName,this.data.groupManagement.description,this.data.groupManagement.userscount,this.data.groupManagement.devicescount)
     })
 
     it('Update Group and verify details',function()
     {
-        groupManagementPage.updateGroup(this.data.updateGroupDetails.groupName,this.data.updateGroupDetails.users,this.data.updateGroupDetails.devices)
+        groupManagementPage.updateGroup(this.data.updateGroupDetails.groupName,this.data.updateGroupDetails.users,this.data.updateGroupDetails.devices,this.data.updateGroupDetails.userscount,this.data.updateGroupDetails.devicescount)
     })
 
     it('delete Group and verify group get deleted or not',function()
@@ -64,9 +64,5 @@ describe('Group suite', function()
     it('verify pagination in Group page',function(){
         groupManagementPage.verifyGroupPagePagination(this.data.pagination.users1,this.data.pagination.users2)
     })
-
-    afterEach('Logout',function(){
-        userManagementPage.logoutFromApplication()
-    })
-
 })
+

@@ -33,13 +33,13 @@ describe('User suite', function()
 
    it('Create new user and verify the new user is created with all information correctly',function()
    {
-      var email=userManagementPage.addUSers(this.data.addCard-false)
+      var email=userManagementPage.addUSers()
       userManagementPage.deleteUser(email)
     })
 
     it('Create new user, add card to user and verify the new user is created with card',function()
    {
-      userManagementPage.addUSers(this.data.addCard-true)
+      userManagementPage.addUSerswithCard()
     })
 
     it('Select multiple users,Enable crads and verify message',function()
@@ -62,5 +62,32 @@ describe('User suite', function()
     {
        userManagementPage.selectUsersPerPage(this.data.pagination.users1,this.data.pagination.users2)
      })
-    
+
+     afterEach(function()
+     {
+      cy.get("body").then($body => {
+        if ($body.find("#exit-user-modal > .feather").length > 0) {   
+        //evaluates as true if button exists at all
+        cy.get('#exit-user-modal > .feather').then($header => {
+              if ($header.is(':visible')){
+                cy.get('#exit-user-modal > .feather').click({force:true})
+              } else {
+                assert.isOk('everything ok','everything ok')
+              }
+            });
+        } else if($body.find(".modal_topbar-exit > .feather").length > 0){
+          cy.get('.modal_topbar-exit > .feather').then($header => {
+            if ($header.is(':visible')){
+              cy.get('.modal_topbar-exit > .feather').click({force:true})
+            } else {
+              assert.isOk('everything ok','everything ok')
+            }
+          });
+        }
+    });
+     })
+})
+after(function()
+{
+    userManagementPage.logoutFromApplication()
 })

@@ -1,0 +1,226 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 6,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-12-01T15:09:42.260Z",
+    "end": "2020-12-01T15:11:09.406Z",
+    "duration": 87146,
+    "testsRegistered": 7,
+    "passPercent": 85.71428571428571,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6bfe3ea9-c0c4-45bd-b107-5581a90fa2c9",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\GroupFunctionalities.spec.js",
+      "file": "cypress\\integration\\TestSuite\\GroupFunctionalities.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+          "title": "Group suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate and verify Group Management page",
+              "fullTitle": "Group suite Navigate and verify Group Management page",
+              "timedOut": null,
+              "duration": 5799,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "menuOptionsPage.clickonGroupIcon();\ngroupManagementPage.verifyGroupPage();",
+              "err": {},
+              "uuid": "cb6b9750-14ce-4bc5-9bcc-6a69444c3443",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create Group and verify details",
+              "fullTitle": "Group suite Create Group and verify details",
+              "timedOut": null,
+              "duration": 20258,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.addGroup(this.data.groupManagement.groupName, this.data.groupManagement.description, this.data.groupManagement.emails, this.data.groupManagement.users, this.data.groupManagement.devices);\ngroupManagementPage.verifyAddedGroup(this.data.groupManagement.groupName, this.data.groupManagement.description, this.data.groupManagement.userscount, this.data.groupManagement.devicescount);",
+              "err": {},
+              "uuid": "3a54aba4-3231-461f-83c0-efe0eff392d8",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Update Group and verify details",
+              "fullTitle": "Group suite Update Group and verify details",
+              "timedOut": null,
+              "duration": 17930,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.updateGroup(this.data.updateGroupDetails.groupName, this.data.updateGroupDetails.users, this.data.updateGroupDetails.devices, this.data.updateGroupDetails.userscount, this.data.updateGroupDetails.devicescount);",
+              "err": {},
+              "uuid": "4bc245ce-7991-479d-9995-01d8c65935f5",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "delete Group and verify group get deleted or not",
+              "fullTitle": "Group suite delete Group and verify group get deleted or not",
+              "timedOut": null,
+              "duration": 383,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.deleteGroup(this.data.updateGroupDetails.groupName);",
+              "err": {},
+              "uuid": "91a243fc-b11b-4d3f-9a92-5399d121eaae",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select no.of users for page and verify",
+              "fullTitle": "Group suite Select no.of users for page and verify",
+              "timedOut": null,
+              "duration": 2511,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.paginationInEdtUsers(this.data.pagination.users1, this.data.pagination.users2);",
+              "err": {},
+              "uuid": "9f50cfa9-03df-46ba-957c-5162d44e9d6e",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Select no.of devices for page and verify",
+              "fullTitle": "Group suite Select no.of devices for page and verify",
+              "timedOut": null,
+              "duration": 2859,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.paginationInEditDevices(this.data.pagination.users1, this.data.pagination.users2);",
+              "err": {},
+              "uuid": "22966561-f785-42d1-8c86-f7c360841a07",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify pagination in Group page",
+              "fullTitle": "Group suite verify pagination in Group page",
+              "timedOut": null,
+              "duration": 30948,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "groupManagementPage.verifyGroupPagePagination(this.data.pagination.users1, this.data.pagination.users2);",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Not enough elements found. Found '10', expected '25'.",
+                "estack": "AssertionError: Timed out retrying: Not enough elements found. Found '10', expected '25'.\n    at MenuOptionsPage.verifyGroupPagePagination (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\GroupFunctionalities.spec.js:501:32)\n    at Context.eval (https://n3xt.stage.bioconnect.cloud/__cypress/tests?p=cypress\\integration\\TestSuite\\GroupFunctionalities.spec.js:86:25)",
+                "diff": "- 10\n+ 25\n"
+              },
+              "uuid": "57e74b1d-5a4c-4ce4-b49e-1473d3085a7c",
+              "parentUUID": "8ccf2bd6-c6ed-4678-974b-56d2f8c8cfc8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb6b9750-14ce-4bc5-9bcc-6a69444c3443",
+            "3a54aba4-3231-461f-83c0-efe0eff392d8",
+            "4bc245ce-7991-479d-9995-01d8c65935f5",
+            "91a243fc-b11b-4d3f-9a92-5399d121eaae",
+            "9f50cfa9-03df-46ba-957c-5162d44e9d6e",
+            "22966561-f785-42d1-8c86-f7c360841a07"
+          ],
+          "failures": [
+            "57e74b1d-5a4c-4ce4-b49e-1473d3085a7c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 80688,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -7,7 +7,7 @@ const randomLastName = faker.name.findName()
 
 class UserManagementPage{
     getUserLogoutMenu() {
-        return cy.get('#account-menu-nav')
+        return cy.get('.sidebar__admin-icon')
     }
 
     getSignoutLink() {
@@ -136,9 +136,11 @@ class UserManagementPage{
     }
 
     logoutFromApplication(){
+        // cy.reload()
+        cy.wait(2000)
         this.getUserLogoutMenu().click()
-        this.getSignoutLink().click()
-        cy.wait(3000)
+        this.getSignoutLink().click({force:true})
+        cy.wait(2000)
     }
     
     verifyUserList(name){
@@ -156,25 +158,40 @@ class UserManagementPage{
         this.getClearSearch().click()
      }
 
-      addUSers(addCard){
+      addUSers(){
           this.getAddUser().click();
-          this.getFirstName().clear().type(randomFirstName)
-          this.getLastName().clear().type(randomLastName)
-          this.getEmail().clear().type(randomEmail)
-          this.getUserName().clear().type(randomEmail)
-        if(addCard==true){
-            this.enterAddCardDetailsAndVerify(randomEmail)
-        }else{
-            this.getAddButton().click()
-            cy.wait(2000)
-            this.getCloseFeedback().click()
-            cy.wait(2000)
-            this.verifyUserData(randomFirstName+" "+randomLastName)
-            this.verifyUserData(randomEmail)
-        }
-          return randomEmail
+          cy.wait(2000)
+          var firstName=comFun.userID_Alpha()
+          var lastName=comFun.userID_Alpha()
+          var mail='BioConnect'+`${Cypress.moment().format('YYYYMMDDhhmmss')}`+'@gmail.com'
+          cy.log(firstName+" "+lastName)
+          this.getFirstName().clear().type(firstName)
+          this.getLastName().clear().type(lastName)
+          this.getEmail().clear().type(mail)
+          this.getUserName().clear().type(mail)
+          this.getAddButton().click()
+          cy.wait(2000)
+          this.getCloseFeedback().click()
+          cy.wait(2000)
+          this.verifyUserData(firstName+" "+lastName)
+          this.verifyUserData(mail)
+          return mail
       }
 
+      addUSerswithCard(){
+        this.getAddUser().click();
+        cy.wait(2000)
+        var firstName=comFun.userID_Alpha()
+        var lastName=comFun.userID_Alpha()
+        var mail='BioConnect'+`${Cypress.moment().format('YYYYMMDDhhmmss')}`+'@gmail.com'
+        cy.log(firstName+" "+lastName)
+        this.getFirstName().clear().type(firstName)
+        this.getLastName().clear().type(lastName)
+        this.getEmail().clear().type(mail)
+        this.getUserName().clear().type(mail)
+        this.enterAddCardDetailsAndVerify(mail)
+        return mail
+    }
       verifyUserData(value){
         this.getUserTableData().contains('span',value).should('be.visible')
       }
@@ -205,18 +222,19 @@ class UserManagementPage{
           this.getClearSearch().click()
       }
 
-      updateDetails(firstName,lastName){
-          var email=this.addUSers(false)
+      updateDetails(firstName1,lastName1){
+          var email=this.addUSers("false")
           this.getUserCheckbox(email).check()
           this.getManageDropdown().trigger('mouseover')
           this.getEditDetails().click({force: true})
-          this.getFirstName().clear().type(firstName)
-          this.getLastName().clear().type(lastName)
+          this.getFirstName().clear().type(firstName1)
+          this.getLastName().clear().type(lastName1)
           this.getUpdateButton().click()
-          this.verifyUserData(firstName+" "+lastName) 
+          this.verifyUserData(firstName1+" "+lastName1) 
       }
 
       selectUsersPerPage(value1,value2){
+          cy.reload()
           this.getPaginationDropdown().select(value1)
           cy.waitFor(1000)
           this.getUserList().should('have.length',value1)
@@ -227,27 +245,27 @@ class UserManagementPage{
 
       selectMultipleUsers(firstname,lastname,emails){
           for(let item of emails){
+              var mail=item+`${Cypress.moment().format('YYYYMMDDhhmmss')}`+'@gmail.com'
             this.getAddUser().click();
-            this.getFirstName().clear().type(firstname)
-            this.getLastName().clear().type(lastname)
-            this.getEmail().clear().type(item)
-            this.getUserName().clear().type(item)
+            this.getFirstName().clear().type(firstname+comFun.userID_Alpha())
+            this.getLastName().clear().type(lastname+comFun.userID_Alpha())
+            this.getEmail().clear().type(mail)
+            this.getUserName().clear().type(mail)
             this.getAddCardCheckbox().click()
             this.getAddButton().click()
             this.getAddNewCardWindowTitle().contains('Add new card for').should('be.visible')
             this.getAddCardButton().click()
             cy.wait(2000)
             this.getCloseFeedback().click()
-            this.getUserCheckBox2(emails).check()
+            this.getUserCheckBox2(mail).check()
           }
       }
 
       ClickEnableOnCardsDropDownAndverify(){
           this.getManageDropdown().click()
-          this.getEnable2FA().click({force:click})
+          this.getEnable2FA().click({force:true})
           this.getSucessPopUp().contains('Enabled two-factor for').should('be.visible')
       }
-
 
 
 

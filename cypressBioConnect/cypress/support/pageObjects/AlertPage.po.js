@@ -26,6 +26,7 @@ class AlertPage
 
     verifyClosedAlert(){
         this.getAlertsTitle().should('not.exist')
+        cy.wait(2000)
     }
 
 

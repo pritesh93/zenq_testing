@@ -99,5 +99,5 @@ describe('Login suite', function()
         loginPage.verifySignInPage()      
       })
 
-    
 })
+

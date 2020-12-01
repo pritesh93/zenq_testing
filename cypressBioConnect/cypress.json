@@ -1,6 +1,6 @@
 {
   "env": {
-    "url": "https://n3xt.stage.bioconnect.cloud/",
+    "url": "https://n3xt.stage.bioconnect.cloud/#/login",
     "RETRIES": 0
   },
   "pageLoadTimeout": 75000,

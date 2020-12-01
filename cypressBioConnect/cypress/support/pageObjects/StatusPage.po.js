@@ -18,8 +18,9 @@ class StatusPage{
 
     verfiyStatusMessage(){
         cy.waitFor(3000)
+        cy.url().should('include','status');
         this.getHealthyText().should('contain.text','healthy')
-        this.getHealthyMessage().should('contain.text','System is online, no issues to report.')
+        // this.getHealthyMessage().should('contain.text','System is online, no issues to report.')
     }
 
     clickOnSignIn(){

@@ -28,20 +28,22 @@
 },
 
 "groupManagement":{
-    "groupName":"TestGroup",
+    "groupName":"AAAGroup",
     "description":"Creating New Group",
     "emails": "testUserA@gmail.com,testUserB@gmail.com,testUserC@gmail.com",
     "users": ["testUserA@gmail.com","testUserB@gmail.com"],
-    "devices":["test4","Test5"],
+    "devices":["Do","Not"],
     "userscount":"2",
     "devicescount":"2",
-    "groupReview":"Group Name\n TestGroup\n Description\n Creating New Group\n Group Authenticator\n Bypass (none)\n Alert Emails\n testUserA@gmail.com, testUserB@gmail.com\n"
+    "groupReview":"Group Name\n AAAGroup\n Description\n Creating New Group\n Group Authenticator\n Bypass (none)\n Alert Emails\n testUserA@gmail.com, testUserB@gmail.com\n"
 },
 
 "updateGroupDetails":{
-    "groupName":"TestGroup",
+    "groupName":"AAAGroup",
     "users": "testUserC@gmail.com",
-    "devices":"test3"
+    "devices":"Delete",
+    "userscount":"3",
+    "devicescount":"3"
 },
 
 "deviceManagement":{
@@ -53,14 +55,14 @@
     "newDeviceName":"Test Device3",
     "toggleStatusdisable":"2FA disabled",
     "toggleStatusenable":"2FA enabled",
-    "btrue":true,
-    "bfalse":false,
+    "btrue":"true",
+    "bfalse":"false",
     "naughtyInput":"ABC123DFG456"
 },
 "UserManagement":{
     "FirstName":"ZenQTest",
     "LastName":"User",
-    "Emails":["ZenQTestUser1@gmail.com","ZenQTestUser2@gmail.com"]
+    "Emails":["ZenQTestUser1","ZenQTestUser2"]
 },
 "AuthenticationManagement":{
     "mailTo":"mailto:schatterjee@bioconnect.com"

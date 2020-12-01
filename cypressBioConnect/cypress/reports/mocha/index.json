@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-01T15:07:01.363Z",
+    "end": "2020-12-01T15:07:21.301Z",
+    "duration": 19938,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c447f7bd-05f4-453d-9b53-3903d80e3ab7",
+      "title": "",
+      "fullFile": "cypress\\integration\\TestSuite\\AlertFunctionalities.js",
+      "file": "cypress\\integration\\TestSuite\\AlertFunctionalities.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b6ff3fe8-67c4-405c-9e5a-3020f6475b1b",
+          "title": "Alert suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Click on the bell icon to access alerts and verify",
+              "fullTitle": "Alert suite Click on the bell icon to access alerts and verify",
+              "timedOut": null,
+              "duration": 9486,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "alertPage.verifyAlertPage();\nalertPage.verifyAlerts();",
+              "err": {},
+              "uuid": "5b674f11-21df-4470-8fc5-c6b9879b6b58",
+              "parentUUID": "b6ff3fe8-67c4-405c-9e5a-3020f6475b1b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Click on the \"x\" icon to close alerts and verify",
+              "fullTitle": "Alert suite Click on the \"x\" icon to close alerts and verify",
+              "timedOut": null,
+              "duration": 2745,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "alertPage.clickOnCloseAlert();\nalertPage.verifyClosedAlert();",
+              "err": {},
+              "uuid": "d6029d3f-8210-4304-a11e-c59d59ad42a3",
+              "parentUUID": "b6ff3fe8-67c4-405c-9e5a-3020f6475b1b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5b674f11-21df-4470-8fc5-c6b9879b6b58",
+            "d6029d3f-8210-4304-a11e-c59d59ad42a3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12231,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "index",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
